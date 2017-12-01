@@ -4,16 +4,12 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body>
+  <body onload="LoadPage()" id="body">
     <h1>Epic List App</h1>
     <input onclick="AddListItem()" type="button" name="add_item" value="Add Item"/>
     <input type="text" id="item_text" />
     <br><br>
-    <label><u>Current List:</u>
-      <ul id="ul_List">
-        
-      </ul>
-  </label>
+    <label id=list_location><u>Current List:</u></label>
   <script type="text/javascript" src="scripts\listscript.js"></script>
   </body>
 </html>
