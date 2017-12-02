@@ -1,10 +1,4 @@
-var ul = document.createElement("ul");
-ul.id = "ul_List";
-var currentItemList = [];
 
-function LoadPage(){
-  document.getElementById('list_location').appendChild(ul);
-}
 
 function AddListItem(){
 
@@ -16,37 +10,30 @@ function AddListItem(){
   {
     // Create LI Object
     var li = document.createElement("li");
+    li.innerText = currentTextList;
 
+    var button = document.createElement('input');
+    button.type='button';
+    button.value ="delete";
+    button.addEventListener('click', removeItem);
 
-    //if(ul.children.length > 0 || ul.children.length != undefined){
-      //id_num = ul.children.length-1;
-    //}
-  //  else {
-    //id_num = 0;
-    //}
-    li.innerHTML = currentTextList+"  <input type='button' value='delete' onclick='deleteListItem(this.parentNode)'/>";
-    //document.create
-    //currentItemList.push(li);
-    //ul.innerHTML = "";
-    //for (var i = 0; i < currentItemList.length; i++) {
-      ul.appendChild(li);
-    //}
+    li.appendChild(button);
+
+    document.getElementById('ul_List').appendChild(li);
   }
 
   // Clear textbox
   document.getElementById("item_text").value = null;
 }
 
-function deleteListItem(item)
-{
+function removeItem(){
+  var item = this.parentNode;
+  var list = item.parentNode;
 
-  //currentItemList.pondex);
-  //item.parentNode.parentNode.removeChild(item.parentNode);
-  //console.log(item.parentNode.parentNode.parentNode.children);
-  //console.log(item.parentNode.children.length);
-  for (var i = 0; i < ul.children.length; i++) {
-    document.getElementById("ul_List").removeChild();
-  }
+  list.removeChild(item);
 
-  //console.log(item);
+
 }
+
+// add eventlistener to add item to list
+document.getElementById('addItem_button').addEventListener('click', AddListItem);
